@@ -1,0 +1,35 @@
+# Database
+spring.datasource.url=jdbc:postgresql://localhost:5433/resumematcher
+spring.datasource.username=YOUR_POSTGRES_USERNAME
+spring.datasource.password=YOUR_POSTGRES_PASSWORD
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+
+# Google Gemini
+spring.ai.google.genai.api-key=YOUR_GEMINI_API_KEY
+spring.ai.google.genai.chat.options.model=gemini-2.5-flash
+
+# pgvector
+spring.ai.vectorstore.pgvector.initialize-schema=true
+spring.ai.vectorstore.pgvector.dimensions=384
+spring.ai.vectorstore.pgvector.distance-type=COSINE_DISTANCE
+spring.ai.vectorstore.pgvector.index-type=HNSW
+
+# Local ONNX embeddings
+spring.ai.embedding.transformer.onnx.modelUri=https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/onnx/model.onnx
+spring.ai.embedding.transformer.onnx.tokenizerUri=https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/tokenizer.json
+spring.ai.embedding.transformer.enabled=true
+
+# Redis
+spring.data.redis.host=localhost
+spring.data.redis.port=6379
+
+# App config
+app.dataset.path=src/main/resources/data/jobs.csv
+app.ingestion.enabled=true
+app.matching.top-k=30
+app.skill.normalization-threshold=0.70
+app.skill.max-gaps-to-explain=5
+app.salary.skill-overlap-threshold=0.30
+app.salary.top-missing-skills-count=3
+app.cache.session-ttl-minutes=30
